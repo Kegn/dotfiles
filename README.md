@@ -1,2 +1,2 @@
 # dotfiles
-various dotfiles and configurations for linux systems
+various dotfiles and configurations for my linux box
