@@ -1,0 +1,305 @@
+; polybar config
+; kegn
+
+[colors]
+background = ${xrdb:*color0:#222}
+background-focused = ${xrdb:*color0:#222}
+background-alert = ${xrdb:*color2:#222}
+background-urgent = ${xrdb:*color0:#222}
+
+foreground = ${xrdb:*color7:#222}
+foreground-focused = ${xrdb:*color5:#222}
+foreground-alert = ${xrdb:*color1:#222}
+primary =  ${xrdb:*color7:#222}
+foreground-imp = ${xrdb:*color2:#222}
+
+[bar/top]
+!monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 30
+offset-x = 0%
+offset-y = 1%
+radius = 6
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = ${colors.foreground}
+
+border-size =
+border-color = ${colors.foreground}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 1
+
+!dpi = 210
+dpi = 96
+font-1 = MonofurForPowerline Nerd Font:size=11;3
+font-0 = MonofurForPowerline Nerd Font:size=11;3
+font-2 = MonofurForPowerline Nerd Font:size=11;3
+
+modules-left = i3
+modules-center = date
+modules-right = volume battery wlan eth temperature memory powermenu
+
+;tray-padding = 2
+;tray-transparent = true;
+tray-offset-y = 0
+tray-offset-x = 0
+
+[module/wlan]
+type = internal/network
+interface = wlp58s0
+interval = 3.0
+
+format-connected-background = ${colors.background}
+format-connected = "<ramp-signal><label-connected>"
+;format-connected-underline = ${colors.foreground}
+label-connected = %ifname% UP
+
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = .
+ramp-signal-1 = :
+ramp-signal-2 = :.
+ramp-signal-3 = ::
+ramp-signal-4 = :::
+ramp-signal-foreground = ${colors.foreground}
+
+
+[module/i3]
+type = internal/i3
+;
+strip-wsnumbers = true
+;
+;label-focused-padding = 2
+;label-unfocused-padding = 2
+
+;label-focused-background = ${colors.background}
+;label-unfocused-background = ${colors.background}
+
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+;label-mode-background = ${colors.background}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %icon% %name%
+label-focused-foreground = ${colors.foreground-focused}
+;label-focused-underline = ${colors.foreground-alert}
+label-focused-padding = 2
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+Default: %icon%  %name%
+label-unfocused = %icon% %name%
+label-unfocused-padding = 2
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-visible = %icon% %name%
+; label-visible-underline = #555555
+label-visible-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-urgent = %icon% %name%
+label-urgent-foreground = ${colors.foreground-alert}
+;label-urgent-background = ${colors.background-alert}
+label-urgent-padding = 2
+
+[module/eth]
+type = internal/network
+interface = enp5s0
+interval = 3.0
+
+format-connected-prefix = "eth "
+format-connected-prefix-foreground = ${colors.foreground-alert}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = "%Y-%m-%d"
+
+time = " %a %b %d, %I:%M"
+time-alt = %H:%M:%S
+
+format-time-foreground = ${colors.foreground-imp}
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+;format-muted-background = ${colors.background-alert}
+;format-volume-background = ${colors.background}
+format-volume = "<ramp-volume>"
+label-muted = " X"
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 ="  "
+ramp-volume-1 ="  "
+ramp-volume-2 ="  "
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 97
+
+;format-full-background = ${colors.background}
+;format-charging-background = ${colors.background-alert}
+format-charging = "<label-charging> <animation-charging>"
+;format-charging-underline = #ffb52a
+
+;format-discharging-background = ${colors.background}
+format-discharging = "<ramp-capacity> <label-discharging>"
+;format-discharging-underline = ${self.format-charging-underline}
+
+format-full =
+format-full-prefix-foreground = ${colors.foreground}
+;format-full-underline = ${self.format-charging-underline}
+ramp-capacity-0 =" "
+ramp-capacity-1 =" "
+ramp-capacity-2 =" "
+ramp-capacity-3 =" "
+ramp-capacity-4 =" "
+
+ramp-capacity-foreground = ${colors.foreground}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+;format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.foreground-alert}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
+
+[module/powermenu]
+type = custom/menu
+format-spacing = -1
+
+label-open = 
+;label-open-background = ${colors.background}
+label-open-foreground = ${colors.foreground}
+label-close = 
+
+;label-close-background = ${colors.background}
+label-close-foreground = ${colors.foreground-alert}
+label-separator = |
+label-separator-foreground = ${colors.foreground}
+
+menu-0-0 =. reboot .
+menu-0-0-exec = menu-open-1
+menu-0-1 =. off .
+menu-0-1-exec = menu-open-2
+
+menu-1-0 =. cancel .
+menu-1-0-exec = menu-open-0
+menu-1-1 =. reboot .
+menu-1-1-exec = sudo reboot
+
+menu-2-0 =. off .
+menu-2-0-exec = sudo poweroff
+menu-2-1 =.  cancel .
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+compositing-background = xor
+;compositing-background = screen
+compositing-foreground = source
+compositing-border = over
+
+[global/wm]
+margin-top = 2
+margin-bottom = 2
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix =
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.foreground}
+;format-underline = #f90000
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+;format-underline = #4bffdc
+label = %percentage_used%%
+format-label-foreground = ${colors.foreground-imp}
+
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = 0
+bar-indicator-foreground = ${colors.foreground}
+bar-indicator-font = 2
+bar-fill =  ─
+bar-fill-font = 2
+bar-fill-foreground = ${colors.foreground-alt}
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground}
