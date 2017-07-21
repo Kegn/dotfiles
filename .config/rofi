@@ -1,0 +1,7 @@
+# rofi config
+rofi.color-enabled: 		true
+rofi.color-normal: 		argb:cb44b5b1, #ff99a1, #065f73, #7cbf9e, #f2f1b9 
+rofi.color-window: 		argb:2a032c36, #ff99a1, #065f73
+rofi.color-active: 		#ff99a1, #44b5b1, #065f73, #f2f1b9, #7cbf9e
+rofi.color-urgent:		#dec1ff, #5a00e0, #c7ffd7, #e8ffb9, #5a00e0
+rofi.font:			Inconsolata for Powerline bold 14
