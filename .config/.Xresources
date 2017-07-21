@@ -1,0 +1,91 @@
+! name
+! URxvt*termName: rxvt-256color
+
+! URxvt.depth:		32
+URxvt.loginShell:	true
+
+! general
+URxvt.savelines: 8192
+URxvt.scrollBar: false
+URxvt.urgentOnBell: true
+URxvt.cursorBlink: false
+URxvt.urlLauncher: xdg-open
+URxvt.urlButton: 1
+
+! transparency
+URxvt.transparent: true
+
+! URxvt.tintColor: #021B21
+URxvt.shading: 25 
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+URxvt*scrollWithBuffer: true 
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! secondary wheel support (if broken, check this)
+URxvt.secondaryWheel: 1
+
+! font delclaration
+! URxvt*font: xft:Inconsolata:size=9,xft:Font Awesome:size=9
+URxvt.font: xft:Inconsolata for Powerline:size=12:style=Medium
+URxvt.letterspace: -1
+! xft specifications
+! Xft.dpi: 210
+Xft.antialias: true
+Xft.hinting: true
+Xft.rbga: rgb
+Xft.hintstyle: hintfull
+
+! tab support. assumes perl extensions
+Urxvt.perl-ext-common: ...,tabbed,...
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+
+! [OG] URxvt.foreground: 	#E8DFD6
+ URxvt.foreground:	#ffffe6
+URxvt.background: 	#021B21
+URxvt.cursorColor:  #2E3340
+URxvt*color0:       #032C36
+URxvt*color8:       #065F73
+URxvt*color1:       #C2454E
+URxvt*color9:       #EF5847
+URxvt*color2:       #7CBF9E
+URxvt*color10:      #A2D9B1
+URxvt*color3:       #8A7A63
+URxvt*color11:      #BEB090
+URxvt*color4:       #2E3340
+URxvt*color12:      #61778D
+URxvt*color5:       #FF5879
+URxvt*color13:      #FF99A1
+URxvt*color6:       #44B5B1
+URxvt*color14:      #9ED9D8
+URxvt*color7:       #F2F1B9
+URxvt*color15:      #F6F6C9
+
+! .foreground: 	#E8DFD6
+.background: 	#021B21
+.cursorColor:  #2E3340
+*color0:       #032C36
+*color8:       #065F73
+*color1:       #C2454E
+*color9:       #EF5847
+*color2:       #7CBF9E
+*color10:      #A2D9B1
+*color3:       #8A7A63
+*color11:      #BEB090
+*color4:       #2E3340
+*color12:      #61778D
+*color5:       #FF5879
+*color13:      #FF99A1
+*color6:       #44B5B1
+*color14:      #9ED9D8
+*color7:       #F2F1B9
+*color15:      #F6F6C9
