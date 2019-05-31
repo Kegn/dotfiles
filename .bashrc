@@ -331,3 +331,10 @@ alias gethttpclearpw='sudo tcpdump -s 0 -A -n -l | egrep -i "POST /|pwd=|passwd=
 alias getallclearpw="sudo tcpdump port http or port ftp or port smtp or port imap or port pop3 or port telnet -l -A | egrep -i -B5 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user '"
 alias dmesg="dmesg -T"
 alias vcb='xclip -i -selection clipboard -o | vim -'
+
+last24() {
+# write files in home dir that have been modified in the last 24 hours to a log and std out
+	find $HOME -mtime 0 | tee -a ~/.local/logs/last24/last24-home-before-$(date +Y-%m-%d).log
+}
+
+
