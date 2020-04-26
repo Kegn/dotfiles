@@ -3,9 +3,6 @@
 alias python=python2
 alias gettimezone="curl -s worldtimeapi.org/api/ip.txt | sed -n 's/^timezone: //p'"
 alias ips="ip a | grep -oP '(?<=inet |addr:)(?:\d+\.){3}\d+'"
-source ~/blogpost.sh
-PATH=$PATH:$HOME/AndroidSDK:$HOME/AndroidSDK/tools:$HOME/bin
-export PATH
 alias gpg=gpg2
 alias cl='grc -s'
 
@@ -181,11 +178,11 @@ alias duf="du -h | awk 'END{print $1}'"
 alias dud='du -h --max-depth=1 | sort -rh'
 #source /home/k/perl5/perlbrew/etc/bashrc
 source /home/k/.tcpdumper.sh
-PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/k/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/k/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/k/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/k/perl5"; export PERL_MM_OPT;
+#PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/home/k/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/k/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/k/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/k/perl5"; export PERL_MM_OPT;
 
 giftext(){
 	# usage : giftext file.txt font.ttf
@@ -195,10 +192,10 @@ giftext(){
 
 source ~/.bash_functions
 source ~/.bash_aliases
-source ~/.bash_monitor.sh
+#source ~/.bash_monitor.sh
 
 # added by Anaconda3 installer
-export PATH="/home/k/anaconda3/bin:$PATH"
+#export PATH="/home/k/anaconda3/bin:$PATH"
 alias getnews='curl https://legiblenews.com | html2ps | ps2ascii'
 
 # stolen from michael_leachim
@@ -336,5 +333,3 @@ last24() {
 # write files in home dir that have been modified in the last 24 hours to a log and std out
 	find $HOME -mtime 0 | tee -a ~/.local/logs/last24/last24-home-before-$(date +Y-%m-%d).log
 }
-
-
