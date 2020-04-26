@@ -177,7 +177,7 @@ alias nocomment='grep -Ev '\''^(#|$)'\'''
 alias duf="du -h | awk 'END{print $1}'"
 alias dud='du -h --max-depth=1 | sort -rh'
 #source /home/k/perl5/perlbrew/etc/bashrc
-source /home/k/.tcpdumper.sh
+source ~/.tcpdumper.sh
 #PATH="/home/k/perl5/bin${PATH:+:${PATH}}"; export PATH;
 #PERL5LIB="/home/k/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 #PERL_LOCAL_LIB_ROOT="/home/k/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
