@@ -317,7 +317,7 @@ digup(){
 
 alias rework="source ~/.workrc"
 
-source ~/perl5/perlbrew/etc/bashrc
+# source ~/perl5/perlbrew/etc/bashrc
 
 jpg2pdf() {
 	convert -density 150 -size 1239x1754 xc:white -density 150 $1 -gravity center -composite $2
